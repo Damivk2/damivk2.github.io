@@ -1,0 +1,122 @@
+h1 {
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+    text-decoration-color: aqua;
+}
+
+h4 img {
+    max-width: 100%;
+    height: auto;
+    width: 230px;
+    /* Ajusta el tamaño de la imagen */
+    display: block;
+    margin: 0 auto 20px;
+    background-color: red;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* Establece la fuente del texto en Arial, con sans-serif como fuente de respaldo */
+    background-color: #040404;
+    /* Color de fondo de la página, un gris claro */
+    margin: 0;
+    /* Elimina el margen por defecto del navegador */
+    padding: 0;
+    /* Elimina el relleno por defecto del navegador */
+    display: flex;
+    /* Utiliza Flexbox para el diseño */
+    flex-direction: column;
+    /* Organiza los elementos hijos en una columna */
+    align-items: center;
+    /* Centra los elementos hijos horizontalmente */
+}
+
+#iFiltro {
+    width: 80%;
+    /* Establece el ancho del campo de filtro al 80% del contenedor padre */
+    padding: 10px;
+    /* Añade un relleno interno de 10px alrededor del campo de filtro */
+    margin: 20px 0;
+    /* Añade un margen de 20px en la parte superior e inferior del campo de filtro */
+    font-size: 16px;
+    /* Establece el tamaño de la fuente del texto en 16px */
+    border: 1px solid #ccc;
+    /* Define un borde de 1px de grosor y color gris claro */
+    border-radius: 4px;
+    /* Añade bordes redondeados de 4px al campo de filtro */
+}
+
+#monumentos {
+    width: 80%;
+    /* Establece el ancho del contenedor de monumentos al 80% del contenedor padre */
+    display: flex;
+    /* Utiliza Flexbox para el diseño dentro del contenedor de monumentos */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan a la siguiente línea cuando sea necesario */
+    gap: 20px;
+    /* Añade un espacio de 20px entre los elementos del contenedor de monumentos */
+    justify-content: center;
+    /* Centra los elementos dentro del contenedor de monumentos horizontalmente */
+}
+
+.monumento {
+    background-color: aqua;
+    /* Color de fondo blanco para cada elemento de monumento */
+    border: 1px solid #ddd;
+    /* Borde de 1px de grosor y color gris claro */
+    border-radius: 8px;
+    /* Bordes redondeados de 8px para cada elemento de monumento */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera debajo del elemento para darle un efecto de profundidad */
+    overflow: hidden;
+    /* Oculta cualquier contenido que se desborde del contenedor del monumento */
+    width: 300px;
+    /* Establece el ancho de cada elemento de monumento a 300px */
+    margin-bottom: 20px;
+    /* Añade un margen de 20px en la parte inferior de cada elemento de monumento */
+    transition: transform 0.2s;
+    /* Añade una transición suave de 0.2 segundos para la transformación de escala */
+}
+
+.monumento:hover {
+    transform: scale(1.05);
+    /* Escala el elemento en un 5% más grande cuando se pasa el cursor sobre él */
+}
+
+.imagen img {
+    width: 100%;
+    /* La imagen ocupa el 100% del ancho del contenedor de imagen */
+    height: 200px;
+    /* Establece la altura de la imagen a 200px */
+    object-fit: cover;
+    /* Asegura que la imagen cubra el contenedor sin distorsionarse, recortando si es necesario */
+}
+
+.descripion {
+    padding: 15px;
+    /* Añade un relleno interno de 15px alrededor del contenido de descripción */
+    text-align: center;
+    /* Centra el texto dentro del contenedor de descripción */
+}
+
+.nombre {
+    font-size: 18px;
+    /* Establece el tamaño de la fuente del nombre del monumento a 18px */
+    font-weight: bold;
+    /* Hace que el texto del nombre del monumento sea en negrita */
+    margin-bottom: 10px;
+    /* Añade un margen de 10px en la parte inferior del nombre del monumento */
+}
+
+.tipo,
+.precio {
+    font-size: 14px;
+    /* Establece el tamaño de la fuente del tipo y precio a 14px */
+    color: #555;
+    /* Establece el color del texto para tipo y precio a un gris oscuro */
+}

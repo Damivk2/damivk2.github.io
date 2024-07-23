@@ -1,0 +1,22 @@
+{
+    "monumentos": [
+        {
+            "imagen": "images/Acueducto.jpg",
+            "nombre": "Acueducto de Segovia",
+            "estiloarquitectonico": "Romano",
+            "precio": "Gratuito"
+        },
+        {
+            "imagen": "images/Alcazar.webp",
+            "nombre": "Alcazar de Segovia",
+            "estiloarquitectonico": "Medieval",
+            "precio": "7€"
+        },
+        {
+            "imagen": "images/castillopedraza.jpg",
+            "nombre": "Castillo de Pedraza",
+            "estiloarquitectonico": "Medieval",
+            "precio": "8€"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la ventana gráfica para que se ajuste al ancho del dispositivo -->
+    <title>Monumentos y Esculturas de Vigo</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS externo para los estilos -->
+</head>
+<h1>VIVA VIGO</h1>
+<h4>
+    <img src="https://ih1.redbubble.net/image.3043314908.5671/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="">
+
+</h4>
+
+<body>
+    <!-- Campo de entrada para filtrar monumentos -->
+    <div>
+        <input type=" text" id="iFiltro" placeholder="Filtrar">
+        <!-- Input de texto con id "iFiltro" para el filtro de búsqueda -->
+    </div>
+    <!-- Contenedor para los monumentos -->
+    <div id="monumentos"></div> <!-- Div con id "monumentos" donde se agregarán los monumentos dinámicamente -->
+
+    <!-- Enlace a los archivos JavaScript -->
+    <script src="scripts/http-client.js"></script> <!-- Enlace al script que maneja las solicitudes HTTP -->
+    <script src="scripts/generadorfilas.js"></script> <!-- Enlace al script que genera las filas de monumentos -->
+    <script>
+        var arrayMonumentos; // Variable global para almacenar los monumentos
+
+        // Añadir evento al input de filtro para realizar la búsqueda en tiempo real
+        document.querySelector("#iFiltro").addEventListener("keyup", () => {
+            let texto = document.querySelector("#iFiltro").value.toLowerCase(); // Obtiene el texto del filtro y lo convierte a minúsculas
+            let monumentosFiltrados = arrayMonumentos.filter((monumento) => {
+                return monumento.title.toLowerCase().includes(texto) ||
+                    monumento.subcategoria.toLowerCase().includes(texto); // Filtra los monumentos por nombre o subcategoría
+            });
+            document.querySelector("#monumentos").innerHTML = ""; // Limpia el contenedor de monumentos
+            monumentosFiltrados.forEach(monumento => {
+                crearFila(monumento.image_uri,
+                    monumento.title,
+                    monumento.subcategoria,
+                    monumento.address); // Crea una fila para cada monumento filtrado
+            });
+        });
+
+        // Realiza la solicitud HTTP para obtener los datos de los monumentos
+        doGetHTTPRequest(
+            "https://datos.vigo.org/data/turismo/poi-monumentos-es.json",
+            procesarMonumentos, procesarError
+        );
+
+        // Procesa la respuesta de los monumentos
+        function procesarMonumentos(texto) {
+            arrayMonumentos = JSON.parse(texto); // Convierte el texto JSON en un objeto
+            arrayMonumentos.forEach(monumento => {
+                crearFila(monumento.image_uri,
+                    monumento.title,
+                    monumento.subcategoria,
+                    monumento.address); // Crea una fila para cada monumento
+            });
+        }
+
+        // Maneja los errores de la solicitud HTTP
+        function procesarError(err) {
+            console.error(err); // Muestra el error en la consola
+        }
+    </script>
+</body>
+
+</html>
